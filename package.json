@@ -1,0 +1,31 @@
+{
+  "name": "translator",
+  "version": "1.0.0",
+  "description": "A translation app to fictional languages",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run prod",
+    "prod": "set NODE_ENV=production&& node index.js",
+    "dev": "set NODE_ENV=development&& node --inspect index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CPNV-RIA1/translator.git"
+  },
+  "keywords": [
+    "translator",
+    "fiction",
+    "languages"
+  ],
+  "author": "Vivien Piccin & Victorien Montavon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CPNV-RIA1/translator/issues"
+  },
+  "homepage": "https://github.com/CPNV-RIA1/translator#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mustache-express": "^1.3.2"
+  }
+}
