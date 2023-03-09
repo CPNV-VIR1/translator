@@ -4,3 +4,7 @@
  * @author    Created by Vivien.Piccin
  * @version   08-03-2023 - original
  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
