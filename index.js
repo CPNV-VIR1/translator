@@ -13,7 +13,7 @@ const config = require('./config/' + (process.env.NODE_ENV || 'development') + '
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/public'), {etag: false}));
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'resources/views'));
