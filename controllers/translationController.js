@@ -7,7 +7,11 @@
 const translator = require("../app/translator/translator");
 
 const translate = (req, res) => {
-    res.send(translator.translate(req.body.text, req.body.language));
+    if(req.body.text != undefined && req.body.language != undefined){
+        res.send(translator.translate(req.body.text, req.body.language));
+    } else {
+        res.sendStatus(400);
+    }
 }
 
 module.exports = {

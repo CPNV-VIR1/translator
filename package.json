@@ -9,7 +9,7 @@
     "dev": "set NODE_ENV=development&& concurrently --kill-others \"node --inspect index.js\" \"npm run watch\"",
     "watch": "npx tailwindcss -i ./resources/css/custom.css -o ./public/css/dist.css --watch",
     "build": "npx tailwindcss -i ./resources/css/custom.css -o ./public/css/dist.css",
-    "test": "jest"
+    "test": "set NODE_ENV=test&& jest"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "jest": "^29.5.0",
+    "supertest": "^6.3.3",
     "tailwindcss": "^3.2.7"
   }
 }
