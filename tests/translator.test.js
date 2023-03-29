@@ -6,13 +6,53 @@
  */
 "use strict";
 
-test('example_test', () => {
+const app = require('../index');
+const request = require('supertest')
+
+test('Translation returns consistent result', done => {
     //given
-    let number = 10;
+    const languageToTranslateTo = "ip";
+    const textToTranslate = "My super awesome text";
+    const expectedOutputText = "vulputate quis a In";
 
     //when
     //Assertion will trigger the events
 
     //then
-    expect(number).toEqual(10);
+    request(app)
+        .post('/translate')
+        .send({language: languageToTranslateTo, text: textToTranslate})
+        .expect('Content-Type', /text\/html/)
+        .expect(expectedOutputText)
+        .expect(200, done);
+})
+
+test('Translate to unknown language returns original prompt', done => {
+    //given
+    const languageToTranslateTo = "rr";
+    const textToTranslate = "My super awesome text";
+    const expectedOutputText = "My super awesome text";
+
+    //when
+    //Assertion will trigger the events
+
+    //then
+    request(app)
+        .post('/translate')
+        .send({language: languageToTranslateTo, text: textToTranslate})
+        .expect('Content-Type', /text\/html/)
+        .expect(expectedOutputText)
+        .expect(200, done);
+})
+
+test('Translate with empty payload returns bad request (400)', done => {
+    //given
+
+    //when
+    //Assertion will trigger the events
+
+    //then
+    request(app)
+        .post('/translate')
+        .expect(400, done);
 })
