@@ -10,7 +10,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mustacheExpress = require('mustache-express');
-const config = require('./config/' + (process.env.NODE_ENV || 'development') + '.js');
+const config = (process.env.NODE_ENV != 'test') ? require('./config/' + (process.env.NODE_ENV || 'development') + '.js') : false;
 
 const app = express();
 
