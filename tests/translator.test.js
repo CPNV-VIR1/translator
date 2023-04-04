@@ -20,7 +20,7 @@ test('Translation returns consistent result', done => {
 
     //then
     request(app)
-        .post('/translate')
+        .post('/translation')
         .send({language: languageToTranslateTo, text: textToTranslate})
         .expect('Content-Type', /text\/html/)
         .expect(expectedOutputText)
@@ -38,7 +38,7 @@ test('Translate to unknown language returns original prompt', done => {
 
     //then
     request(app)
-        .post('/translate')
+        .post('/translation')
         .send({language: languageToTranslateTo, text: textToTranslate})
         .expect('Content-Type', /text\/html/)
         .expect(expectedOutputText)
@@ -53,6 +53,6 @@ test('Translate with empty payload returns bad request (400)', done => {
 
     //then
     request(app)
-        .post('/translate')
+        .post('/translation')
         .expect(400, done);
 })
