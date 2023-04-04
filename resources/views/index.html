@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/css/dist.css" rel="stylesheet">
   <title>Translatator</title>
   <link rel="icon" href="favicon.ico" />
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/index.js"></script>
 </head>
-
 <body>
   <!-- Navbar-------------------------------------------------------------->
   <nav class="bg-grey px-2 sm:px-4 py-2.5 shadow-md sticky">
@@ -47,14 +48,14 @@
   <!-- Module de Traduction------------------------------------------------->
   <div class="flex justify-center">
   <div class="content justify-center max-w-sm rounded border border-teal-500 overflow-hidden shadow-xl my-3 bg-zinc-300">
-    <form class="max-w-sm">
+    <form class="max-w-sm" id="translationForm">
       <div class="flex justify-center border-teal-500 py-2">
         <input
           class="appearance-none rounded w-full text-gray-700 mx-3 py-1 px-2 leading-tight focus:outline-none"
-          type="text" placeholder="Texte à traduire" aria-label="Full name">
+          type="text" placeholder="Texte à traduire" aria-label="Full name" id="prompt"/>
         <button
           class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-3 mr-3 rounded"
-          type="button">
+          type="button"/>
           Traduire
         </button>
       </div>
@@ -65,19 +66,24 @@
       </output>
     </div>
     <div class="px-6 pt-4 pb-2">
-            <span
-        class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Random</span>
-      <span
-        class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Anglais</span>
-      <span
-        class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Italien</span>
-      <span
-        class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Japonais</span>
-    </div>
+      <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+          <div class="flex items-center pl-3">
+            <input id="horizontal-list-ip" type="radio" value="ip" name="list-languages" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" checked>
+            <label for="horizontal-list-ip" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ipsum</label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+          <div class="flex items-center pl-3">
+            <input id="horizontal-list-dw" type="radio" value="dw" name="list-languages" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="horizontal-list-dw" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dwarven</label>
+          </div>
+        </li>
+      </ul>
+      </div>
     </div>
   </div>
   <div id="google_translate_element"></div>
 </body>
 <footer></footer>
-
 </html>
