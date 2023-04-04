@@ -14,7 +14,7 @@ window.onload = () => {
             text: $('#prompt').val()
         }
         $.ajax({
-            url: BASE_URL + '/translate',
+            url: BASE_URL + '/translation',
             method: 'POST',
             contentType: "application/json",
             data: JSON.stringify(dataPayload),

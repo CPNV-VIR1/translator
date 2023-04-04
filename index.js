@@ -21,7 +21,7 @@ app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'resources/views'));
 app.use('/', require('./routes/index'));
-app.use('/translate', require('./routes/translate'));
+app.use('/translation', require('./routes/translation'));
 
 if (process.env.NODE_ENV != 'test') {
     app.listen(config.Host.port || 8080, () => {
