@@ -6,20 +6,7 @@ Translator requires the following dependencies:
 - NPM 9.5.1
 - NPX 9.5.1
 
-Translator also requires the following npm libraries:
-```json
-"dependencies": {
-    "express": "^4.18.2",
-    "mustache-express": "^1.3.2",
-    "seedrandom": "^3.0.5"
-},
-"devDependencies": {
-    "concurrently": "^7.6.0",
-    "jest": "^29.5.0",
-    "supertest": "^6.3.3",
-    "tailwindcss": "^3.2.7"
-}
-```
+The npm dependencies can be found in the package.json file under `dependencies`
 ## Installation
 To install translator, clone it locally and install the NPM libraries
 ```shell
@@ -75,6 +62,17 @@ To run these tests, execute this command.
 ```shell
 $ npm test
 ```
+## How to collaborate
+In order for you to collaborate to this project, fork this repository and work of said fork.
+During your development please use the [naming conventions](https://github.com/CPNV-RIA1/translator/wiki/Project-structure#naming-conventions) in your code as described in our wiki.
+Make sure that you also use the [branch and commit strategies](https://github.com/CPNV-RIA1/translator/wiki/Project-structure#branch-and-commit-strategies).
+
+Once you're done with what you wanted to add to the project, open a pull request to this repository,
+a project manager will review it and if he/she finds it meaningful enough to add to the project, will merge it.
+
+Lastly, keep in mind that, if the [naming conventions](https://github.com/CPNV-RIA1/translator/wiki/Project-structure#naming-conventions) and
+[branch and commit strategies](https://github.com/CPNV-RIA1/translator/wiki/Project-structure#branch-and-commit-strategies)
+are not respected, your pull request will be denied regardless of any benefit your might bring to this project.
 ## File structure
 Project file structure:
 ```shell
