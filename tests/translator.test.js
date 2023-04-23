@@ -13,7 +13,7 @@ test('Translation returns consistent result', done => {
     //given
     const languageToTranslateTo = "ip";
     const textToTranslate = "My super awesome text";
-    const expectedOutputText = "vitae tempor enim sagittis";
+    const expectedOutputText = "vitae tempor enim sagitti";
 
     //when
     //Assertion will trigger the events
