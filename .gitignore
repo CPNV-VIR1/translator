@@ -109,3 +109,5 @@ config/*
 
 # Tailwind generated css
 public/css/dist.css
+
+.DS_Store
