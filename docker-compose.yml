@@ -10,6 +10,11 @@ services:
     environment:
       - NODE_ENV=prod
       - NODE_PORT=8080
+      - DATABASE_TYPE=mysql
+      - DATABASE_NAME=translator
+      - DATABASE_USERNAME=translator
+      - DATABASE_PASSWORD=translator
+      - DATABASE_HOST=translator-database
   translator-frontend:
     build:
       context: .
@@ -19,8 +24,26 @@ services:
       - translatornet-app
     ports:
       - 80:80
+  translator-database:
+    image: mysql:8.0
+    networks:
+      - translatornet-db
+    volumes:
+      - translator_mysql_data:/var/lib/mysql
+      - translator_mysql_config:/etc/mysql
+    environment:
+      - MYSQL_USER=translator
+      - MYSQL_PASSWORD=translator
+      - MYSQL_DATABASE=translator
+      - MYSQL_ROOT_PASSWORD=root-translator
 networks:
   translatornet-app:
     driver: bridge
   translatornet-db:
     driver: bridge
+
+volumes:
+  translator_mysql_data:
+    external: false
+  translator_mysql_config:
+    external: false
