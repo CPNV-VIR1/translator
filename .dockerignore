@@ -1,0 +1,7 @@
+frontend.dockerfile
+backend.dockerfile
+config/development.js
+config/production.js
+.gitignore
+.github
+node_modules

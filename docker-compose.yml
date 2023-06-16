@@ -1,0 +1,26 @@
+services:
+  translator-backend:
+    build:
+      context: .
+      dockerfile: backend.dockerfile
+    image: translator-backend:version1.0.dev
+    networks:
+      - translatornet-app
+      - translatornet-db
+    environment:
+      - NODE_ENV=prod
+      - NODE_PORT=8080
+  translator-frontend:
+    build:
+      context: .
+      dockerfile: frontend.dockerfile
+    image: translator-frontend:version1.0.dev
+    networks:
+      - translatornet-app
+    ports:
+      - 80:80
+networks:
+  translatornet-app:
+    driver: bridge
+  translatornet-db:
+    driver: bridge
