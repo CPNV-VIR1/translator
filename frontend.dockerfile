@@ -7,7 +7,9 @@ COPY resources/views/index.html ./index.html
 COPY public/ ./
 RUN echo "server { \n\
       listen 80; \n\
+      listen 443; \n\
       listen [::]:80; \n\
+      listen [::]:443; \n\
       server_name translator; \n\
       location / { \n\
         root /app; \n\
