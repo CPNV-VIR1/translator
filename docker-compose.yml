@@ -1,8 +1,22 @@
 services:
+  translator-frontend:
+    build:
+      context: .
+      dockerfile: frontend.dockerfile
+    depends_on:
+      - translator-backend
+    image: translator-frontend:version1.0.dev
+    networks:
+      - translatornet-app
+    ports:
+      - 80:80
+      - 443:443
   translator-backend:
     build:
       context: .
       dockerfile: backend.dockerfile
+    depends_on:
+      - translator-database
     image: translator-backend:version1.0.dev
     networks:
       - translatornet-app
@@ -15,18 +29,10 @@ services:
       - DATABASE_USERNAME=translator
       - DATABASE_PASSWORD=translator
       - DATABASE_HOST=translator-database
-  translator-frontend:
-    build:
-      context: .
-      dockerfile: frontend.dockerfile
-    image: translator-frontend:version1.0.dev
-    networks:
-      - translatornet-app
-    ports:
-      - 80:80
-      - 443:443
   translator-database:
     image: mysql:8.0
+    cap_add:
+      - SYS_NICE
     networks:
       - translatornet-db
     volumes:
